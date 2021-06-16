@@ -1,13 +1,13 @@
 //=============================================================================
 //
-// ƒƒCƒ“ˆ— [main.h]
-// Author :KAZUKI KURA
+// ãƒ¡ã‚¤ãƒ³å‡¦ç† [main.h]
+// Author :KAZUKI KURA/SYUUKI
 //
 //=============================================================================
 #pragma once
 
 //*****************************************************************************
-// ƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹
+// ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«
 //*****************************************************************************
 #define NOMINMAX
 #include <windows.h>
@@ -21,11 +21,11 @@
 
 
 
-// –{—ˆ‚Íƒwƒbƒ_‚É‘‚©‚È‚¢•û‚ª—Ç‚¢
+// æœ¬æ¥ã¯ãƒ˜ãƒƒãƒ€ã«æ›¸ã‹ãªã„æ–¹ãŒè‰¯ã„
 using namespace DirectX;
 
 //*****************************************************************************
-// ƒ}ƒNƒ’è‹`
+// ãƒžã‚¯ãƒ­å®šç¾©
 //*****************************************************************************
 #ifndef SAFE_RELEASE
 #define SAFE_RELEASE(x) {if(x){(x)->Release();x=nullptr;}}
@@ -37,59 +37,59 @@ using namespace DirectX;
 #define SAFE_DELETE_ARRAY(x) {if(x){delete[](x);x=nullptr;}}
 #endif
 
-#define SCREEN_WIDTH	(1280)				// ƒEƒCƒ“ƒhƒE‚Ì•
-#define SCREEN_HEIGHT	(720)				// ƒEƒCƒ“ƒhƒE‚Ì‚‚³
-#define SCREEN_CENTER_X	(SCREEN_WIDTH/2)	// ƒEƒCƒ“ƒhƒE‚Ì’†S‚wÀ•W
-#define SCREEN_CENTER_Y	(SCREEN_HEIGHT/2)	// ƒEƒCƒ“ƒhƒE‚Ì’†S‚xÀ•W
+#define SCREEN_WIDTH	(1280)				// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®å¹…
+#define SCREEN_HEIGHT	(720)				// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®é«˜ã•
+#define SCREEN_CENTER_X	(SCREEN_WIDTH/2)	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ä¸­å¿ƒï¼¸åº§æ¨™
+#define SCREEN_CENTER_Y	(SCREEN_HEIGHT/2)	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ä¸­å¿ƒï¼¹åº§æ¨™
 
-#define	NUM_VERTEX		(4)					// ’¸“_”
-#define	NUM_POLYGON		(2)					// ƒ|ƒŠƒSƒ“”
+#define	NUM_VERTEX		(4)					// é ‚ç‚¹æ•°
+#define	NUM_POLYGON		(2)					// ãƒãƒªã‚´ãƒ³æ•°
 
 #define SinDeg(degree)	sinf(XMConvertToRadians(degree))
 #define CosDeg(degree)	cosf(XMConvertToRadians(degree))
 
-//#define DEBUG           (0)                 // ƒfƒoƒbƒO’†‚©‚Ç‚¤‚©
-#define SETCONTROLLER   (0)                 // ƒRƒ“ƒgƒ[ƒ‰[Ú‘±‚Ì—L–³
+//#define DEBUG           (0)                 // ãƒ‡ãƒãƒƒã‚°ä¸­ã‹ã©ã†ã‹
+#define SETCONTROLLER   (0)                 // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼æŽ¥ç¶šã®æœ‰ç„¡
 #define MODEL_RELEASE_ON (0)
 #define MESH_RELEASE_ON (0)
 
 enum EBlendState {
-	BS_NONE = 0,							// ”¼“§–¾‡¬–³‚µ
-	BS_ALPHABLEND,							// ”¼“§–¾‡¬
-	BS_ADDITIVE,							// ‰ÁŽZ‡¬
-	BS_SUBTRACTION,							// Œ¸ŽZ‡¬
+	BS_NONE = 0,							// åŠé€æ˜Žåˆæˆç„¡ã—
+	BS_ALPHABLEND,							// åŠé€æ˜Žåˆæˆ
+	BS_ADDITIVE,							// åŠ ç®—åˆæˆ
+	BS_SUBTRACTION,							// æ¸›ç®—åˆæˆ
 
 	MAX_BLENDSTATE
 };
 
 enum ECullMode {
-	CULLMODE_NONE = 0,						// ƒJƒŠƒ“ƒO‚µ‚È‚¢
-	CULLMODE_CW,							// ‘O–ÊƒJƒŠƒ“ƒO
-	CULLMODE_CCW,							// ”w–ÊƒJƒŠƒ“ƒO
+	CULLMODE_NONE = 0,						// ã‚«ãƒªãƒ³ã‚°ã—ãªã„
+	CULLMODE_CW,							// å‰é¢ã‚«ãƒªãƒ³ã‚°
+	CULLMODE_CCW,							// èƒŒé¢ã‚«ãƒªãƒ³ã‚°
 
 	MAX_CULLMODE
 };
 
 //*****************************************************************************
-// \‘¢‘Ì’è‹`
+// æ§‹é€ ä½“å®šç¾©
 //*****************************************************************************
-// ’¸“_ƒtƒH[ƒ}ƒbƒg( ’¸“_À•W[2D] / ”½ŽËŒõ / ƒeƒNƒXƒ`ƒƒÀ•W )
+// é ‚ç‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ( é ‚ç‚¹åº§æ¨™[2D] / åå°„å…‰ / ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™ )
 typedef struct {
-	XMFLOAT3 vtx;		// ’¸“_À•W
-	XMFLOAT4 diffuse;	// ŠgŽU”½ŽËŒõ
-	XMFLOAT2 tex;		// ƒeƒNƒXƒ`ƒƒÀ•W
+	XMFLOAT3 vtx;		// é ‚ç‚¹åº§æ¨™
+	XMFLOAT4 diffuse;	// æ‹¡æ•£åå°„å…‰
+	XMFLOAT2 tex;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™
 } VERTEX_2D;
 
-// ’¸“_ƒtƒH[ƒ}ƒbƒg( ’¸“_À•W[3D] / –@üƒxƒNƒgƒ‹ / ”½ŽËŒõ / ƒeƒNƒXƒ`ƒƒÀ•W )
+// é ‚ç‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ( é ‚ç‚¹åº§æ¨™[3D] / æ³•ç·šãƒ™ã‚¯ãƒˆãƒ« / åå°„å…‰ / ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™ )
 typedef struct {
-	XMFLOAT3 vtx;		// ’¸“_À•W
-	XMFLOAT3 nor;		// –@üƒxƒNƒgƒ‹
-	XMFLOAT4 diffuse;	// ŠgŽU”½ŽËŒõ
-	XMFLOAT2 tex;		// ƒeƒNƒXƒ`ƒƒÀ•W
+	XMFLOAT3 vtx;		// é ‚ç‚¹åº§æ¨™
+	XMFLOAT3 nor;		// æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«
+	XMFLOAT4 diffuse;	// æ‹¡æ•£åå°„å…‰
+	XMFLOAT2 tex;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™
 } VERTEX_3D;
 
 //*****************************************************************************
-// ƒvƒƒgƒ^ƒCƒvéŒ¾
+// ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 //*****************************************************************************
 HWND GetMainWnd();
 HINSTANCE GetInstance();
